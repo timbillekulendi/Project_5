@@ -5,12 +5,25 @@
 //displayMessage(Message) enables message variables to be declared in the text area. 
          	
 function theGlades() { 
-	var desc = "(The Glades) You're in the glade, a small square shaped living space in the middle of the maze. Is there any hope of ever escaping?";
+	this.base = locat;
+	this.base();
+	
+	this.toString = function() {
+						return  this.description + 
+								this.item;
+					}
+	
+						
+	
+	/* var desc = "(The Glades) You're in the glade, a small square shaped living space in the middle of the maze. Is there any hope of ever escaping?";
 	checkScore(); //To check score when this location 
 	desc = desc + "\n" + "Score:" + " " + score ;
 	this.contents = "There's nothing in the area."; //Allocates the item to the location.
-	displayMessage(desc);
+	displayMessage(desc); */
 }
+
+theGlades.prototype = new locat;
+theGlades.prototype.constructor = theGlades;
 		
 function sector1() {
 	var desc = "(Sector 1) You've been going through the maze for hours and end up in Thornhill, an enormous unkept plantation full of venomous plants.";

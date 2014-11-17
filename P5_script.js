@@ -304,13 +304,40 @@ function btnGo_click () { //Handles the logic to the text input box that allows 
           						inventory();
           						}
 }
+
+function locat() {
+	this.id = "";
+	this.name = "";
+	this.description = "";
+	this.item = "";
+	this.toString = function () {
+								return this.name +
+									   this.description +
+								       this.item;
+					}
+}
+
 //
 //Functions for items 
 //
 
 
 function init() { //Calls starting point of game.
-	theGlades();	
+	var thelocat = new locat;
+	thelocat.id = "locat";
+	thelocat.name = "locat";
+	thelocat.description = "Sup!";
+	thelocat.item = "Empty";
+	//displayMessage(thelocat.toString());
+	
+	var myGlades = new theGlades;
+	myGlades.id = "theGlades";
+	myGlades.name = "theGlades";
+	myGlades.description = "(The Glades) You're in the glade, a small square shaped living space in the middle of the maze. Is there any hope of ever escaping?";
+	myGlades.item = "fish";
+	displayMessage(myGlades.toString());
+	 
+
 }
 
 function search() { //Deals with checking if there is an item in the location.
