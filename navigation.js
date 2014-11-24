@@ -3,8 +3,9 @@
 //
 
 //Assigns each button with a case
+//Navigation called globally
 
-function btnNorth_click() { 
+function btnNorth_click() {  
 	navigation(0);
 }
 
@@ -26,36 +27,39 @@ function navigation (dir){ //Default enables all the buttons.
     document.getElementById("East").disabled = true;
     document.getElementById("West").disabled = true;
     
+    //
+    //Navigation Logic
+    //
     switch(currLoc) {
     	case 0: switch (dir) { //In the case the user is in location 0, the different cases would function depending on the button pressed.
     		case 0: currLoc = locArray[4].id; //If the player is in loc 0 and goes north, the user goes to loc 4 and the other functions activated.
     				displayMessage(locArray[4].description);
-    				document.getElementById("map").src = "Map4.jpg";
+    				document.getElementById("map").src = "Map4.jpg"; //Changes map based on players position
     				document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
     				document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
     				document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
     				break;
-    		case 1: currLoc = locArray[1].id; //If the player is in loc 0 and goes south, the user goes to loc 4 and the other functions initialize
+    		case 1: currLoc = locArray[1].id; //If the player is in loc 0 and goes south, the user goes to loc 1 and the other functions initialize
     				displayMessage(locArray[1].description);
     				document.getElementById("map").src = "Map1.jpg";
     				document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
     	    	    document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
     	   		    document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
     				break;
-    		case 2: currLoc = locArray[2].id; //If the player is in loc 0 and goes north, the user goes to loc 4 and the other functions initialize
+    		case 2: currLoc = locArray[2].id; //If the player is in loc 0 and goes north, the user goes to loc 2 and the other functions initialize
     				displayMessage(locArray[2].description);
     				document.getElementById("map").src = "Map2.jpg";
     				document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
               	 	document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.	
     				break;
-    		case 3: currLoc = locArray[3].id; //If the player is in loc 0 and goes north, the user goes to loc 4 and the other functions initialize
+    		case 3: currLoc = locArray[3].id; //If the player is in loc 0 and goes north, the user goes to loc 3 and the other functions initialize
     				displayMessage(locArray[3].description);
     				document.getElementById("map").src = "Map3.jpg";
     				document.getElementById("West").disabled = false;
     				break; //In the case that the button is required, they are activated here.
     	} break;
     	
-    	case 1: switch (dir) { 
+    	case 1: switch (dir) { //In the case the user is in location 1, the different cases would function depending on the button pressed.
     		case 0: currLoc = locArray[0].id;
     				displayMessage(locArray[0].description);
     				document.getElementById("map").src = "MapG.jpg";
@@ -74,10 +78,10 @@ function navigation (dir){ //Default enables all the buttons.
     				document.getElementById("map").src = "Map8.jpg";
     				document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
     				break;
-    		default: navigationError();	
+    		default: navigationError(); //This triggers navigation error message when the user goes the wrong way.	
     } break;
     
-    case 2: switch (dir) { 
+    case 2: switch (dir) { //In the case the user is in location 2, the different cases would function depending on the button pressed.
     		case 1: currLoc = locArray[6].id;
     				displayMessage(locArray[6].description);
     				document.getElementById("map").src = "Map6.jpg";
@@ -94,7 +98,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();
 	} break;
 	
-	 case 3: switch (dir) { 
+	 case 3: switch (dir) { //In the case the user is in location 3, the different cases would function depending on the button pressed.
     		case 2: currLoc = locArray[0].id;
     				displayMessage(locArray[0].description);
     				document.getElementById("map").src = "MapG.jpg";
@@ -106,7 +110,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();
     } break;
     
-    case 4: switch (dir) { 
+    case 4: switch (dir) { //In the case the user is in location 4, the different cases would function depending on the button pressed.
     		case 1: currLoc = locArray[0].id;
     				displayMessage(locArray[0].description);
     				document.getElementById("map").src = "MapG.jpg";
@@ -128,7 +132,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();	
     } break;
     
-    case 5: switch (dir) { 
+    case 5: switch (dir) { //In the case the user is in location 5, the different cases would function depending on the button pressed.
     		case 3: currLoc = locArray[4].id;
     				displayMessage(locArray[4].description);
     				document.getElementById("map").src = "Map4.jpg";
@@ -139,7 +143,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();	
     } break;
     
-    case 6: switch (dir) { 
+    case 6: switch (dir) { //In the case the user is in location 6, the different cases would function depending on the button pressed.
     		case 0: currLoc = locArray[2].id;
     				displayMessage(locArray[2].description);
     				document.getElementById("map").src = "Map2.jpg";
@@ -149,7 +153,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();	
     } break;
     
-    case 7: switch (dir) { 
+    case 7: switch (dir) { //In the case the user is in location 7, the different cases would function depending on the button pressed.
     		case 2: currLoc = locArray[4].id;
     				displayMessage(locArray[4].description);
     				document.getElementById("map").src = "Map4.jpg";
@@ -160,7 +164,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();	
     } break;
     
-    case 8: switch (dir) { 
+    case 8: switch (dir) { //In the case the user is in location 8, the different cases would function depending on the button pressed.
     		case 2: currLoc = locArray[1].id;
     				displayMessage(locArray[1].description);
     				document.getElementById("map").src = "Map1.jpg";
@@ -171,7 +175,7 @@ function navigation (dir){ //Default enables all the buttons.
     		default: navigationError();	
     } break;
     
-    case 9: switch (dir) { 
+    case 9: switch (dir) { //In the case the user is in location 9, the different cases would function depending on the button pressed.
     		case 0: currLoc = locArray[1].id;
     				displayMessage(locArray[1].description);
     				document.getElementById("map").src = "Map1.jpg";
