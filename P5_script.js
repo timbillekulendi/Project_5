@@ -25,200 +25,6 @@ function init() {
 	look(theGlades);
 }
          
-//
-// Directional Button Event Handlers
-//         
-		
-function btnNorth_click() { //This allows the player to go north when possible.
-	if (currentLoc === 0) { //If the players current location is loc0, moving north would change their location to loc4.
-		currentLoc = 4;
-		look();               
-	} 
-		else {
-			if (currentLoc === 1) { //If the players current location is loc1, moving north would change their location to loc0.
-				currentLoc = 0;
-				look();            
-			} 
-			else {
-				if (currentLoc === 6) { //If the players current location is loc6, moving north would change their location to loc2.
-					currentLoc = 2;
-					look();      	               
-				}
-					else {
-						if (currentLoc === 9) { //If the players current location is loc9, moving north would change their location to loc1.
-							currentLoc = 1;
-							look();
-						} 
-							else { //Displays the error message when the player goes the wrong way.
-								navigationError(); 
-							}
-					}
-    	    }		            
-        }
-}
-
-function btnSouth_click() { //This allows the player to go south when possible.
-	if (currentLoc === 0) { //If the players current location is loc0, moving south would change their location to loc1.
-		currentLoc = 1;
-		look();
-	}
-		else {
-			if (currentLoc === 2) { //If the players current location is loc2, moving south would change their location to loc6.
-				currentLoc = 6;
-				look();
-			} 
-				else {
-					if (currentLoc === 4) { //If the players current location is loc4, moving south would change their location to loc0.
-						currentLoc = 0;
-						look();           
-					}
-						else {
-							if (currentLoc === 1) { //If the players current location is loc1, moving south would change their location to loc9.
-								currentLoc = 9;
-								look();
-							} 
-								else { //Displays the error message when the player goes the wrong way.
-									navigationError(); 
-							}
-					}
-            	}
-	        }
-}
-
-function btnEast_click() { //This allows the player to go east when possible.
-	if (currentLoc === 0) { //If the players current location is loc0, moving east would change their location to loc3.
-		currentLoc = 3;
-		look();
-	} 
-		else {
-			if (currentLoc === 2) { //If the players current location is loc2, moving east would change their location to loc3.
-				currentLoc = 0;
-				look();
-			}
-			else {
-				if (currentLoc === 5) { //If the players current location is loc5, moving east would change their location to loc4.
-					currentLoc = 4;
-					look();
-				} 
-					else {
-						if (currentLoc === 4) { //If the players current location is loc4, moving east would change their location to loc7.
-							currentLoc = 7;
-							look();
-						}
-							else {
-								if (currentLoc === 1) { //If the players current location is loc1, moving east would change their location to loc8.
-									currentLoc = 8;
-									look();
-								}	
-									else { //Displays the error message when the player goes the wrong way.
-										navigationError(); 
-									}
-							}
-	              	}
-			}
-		}
-}
-
-function btnWest_click() { //This allows the player to go west when possible.
-	if (currentLoc === 0) { //If the players current location is loc0, moving west would change their location to loc2.
-		currentLoc = 2;
-		look();
-	}
-		else {
-			if (currentLoc === 3) { //If the players current location is loc3, moving west would change their location to loc0.
-				currentLoc = 0;
-				look();
-			}
-				else {
-					if (currentLoc === 4) { //If the players current location is loc4, moving west would change their location to loc5.
-						currentLoc = 5;
-						look();
-					} 
-						else {
-							if (currentLoc === 7) { //If the players current location is loc7, moving west would change their location to loc4.
-								currentLoc = 4;
-								look();
-							}
-								else {
-									if (currentLoc === 8) { //If the players current location is loc8, moving west would change their location to loc1.
-										currentLoc = 1;
-										look();
-									}	
-										else { //Displays the error message when the player goes the wrong way.
-											navigationError(); 
-										}
-								}
-						}
-				}
-		}
-}
-//
-// Story / Locale Functions
-//
-		
-function look() {
-	var desc= "";
-	document.getElementById("North").disabled = true; //These disable all the buttons.
-	document.getElementById("South").disabled = true;
-    document.getElementById("East").disabled = true;
-    document.getElementById("West").disabled = true;
-				
-		switch(currentLoc) { //This handles switching the text in the text area based on the position of the player.
-			case 0: theGlades();
-				document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
-       			document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
-            	document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
-               	document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
-               	document.getElementById("map").src = "MapG.jpg";
-               	break;
-			case 1: sector1();
-    	        document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
-    	        document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
-    	        document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
-    	        document.getElementById("map").src = "Map1.jpg";
-				break; 
-            case 2: sector2();
-               	document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
-               	document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
-               	document.getElementById("map").src = "Map2.jpg";
-				break;
-	        case 3: sector3();
-       			document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
-       			document.getElementById("map").src = "Map3.jpg";
-				break;
-      		case 4: sector4();
-               	document.getElementById("South").disabled = false; //In the case that the button is required, they are activated here.
-    			document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
-    			document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
-    			document.getElementById("map").src = "Map4.jpg";
-				break;
-	        case 5:  sector5();    
-    	        document.getElementById("East").disabled = false; //In the case that the button is required, they are activated here.
-    	        document.getElementById("map").src = "Map5.jpg";
-				break;
-        	case 6: sector6();
-               	document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
-               	document.getElementById("map").src = "Map6.jpg";
-				break;	
-	        case 7: sector7();
-	        	document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
-	        	document.getElementById("map").src = "Map7.jpg";
-	        	break;
-	        case 8: sector8();
-	        	document.getElementById("West").disabled = false; //In the case that the button is required, they are activated here.
-	        	document.getElementById("map").src = "Map8.jpg";
-	        	break;
-	        case 9: sector9();
-	        	document.getElementById("North").disabled = false; //In the case that the button is required, they are activated here.
-	        	document.getElementById("map").src = "Map9.jpg";
-	        	break;
-	        // case 10: sector10();
-	        //	break;
-	        // case 11: sector11();
-	        //	break;
-	            default: desc = "You can't go there!! *Evil Laugh*";
-    	    }
-}
 			
 
 function navigationError() { //Handle error message in the case that the user goes the wrong way.
@@ -305,56 +111,109 @@ function btnGo_click () { //Handles the logic to the text input box that allows 
           						}
 }
 
-function locat() {
-	this.id = "";
-	this.name = "";
-	this.description = "";
-	this.item = "";
+
+function locat(newid) {
+	this.id = newid;
+	this.name = "Room";
+	this.description = "It is a room.";
+	this.item = "Nothing here.";
 	this.toString = function () {
-								return this.name +
-									   this.description +
-								       this.item;
+								return this.description; 
 					}
 }
 
-//
-//Functions for items 
-//
+function item() {
+	this.name = "Item";
+	this.description = "";
+	this.toString = function () {
+								return this.name +
+									   this.description; 
+					}
+}
 
 
-function init() { //Calls starting point of game.
-	var thelocat = new locat;
-	thelocat.id = "locat";
-	thelocat.name = "locat";
-	thelocat.description = "Sup!";
-	thelocat.item = "Empty";
-	//displayMessage(thelocat.toString());
+
+
+var locArray = [];
 	
-	var myGlades = new theGlades;
-	myGlades.id = "theGlades";
-	myGlades.name = "theGlades";
-	myGlades.description = "(The Glades) You're in the glade, a small square shaped living space in the middle of the maze. Is there any hope of ever escaping?";
-	myGlades.item = "fish";
-	displayMessage(myGlades.toString());
-	 
+function init() { //Calls starting point of game.
 
+	var spear = new item();
+	spear.name = "Spear";
+
+	var food = new item();
+	food.name =  "Food";
+
+	var greiverTransmitter = new item();
+	greiverTransmitter.name = "Greiver Transmitter";
+
+
+	var theglades = new locat(0);
+	theglades.description = "(The Glades) You're in the glade, a small square shaped living space in the middle of the maze. Is there any hope of ever escaping?";
+	locArray.push(theglades);
+	
+	var sector1 = new locat(1);
+	sector1.description = "(Sector 1) You've been going through the maze for hours and end up in Thornhill, an enormous unkept plantation full of venomous plants.";
+	locArray.push(sector1);
+	
+	var sector2 = new locat(2);
+	sector2.description = "(Sector 2) The night sky begins to dawn, you begin to hear the long doleful cry of the Grievers fill the air. You don't want to end up one on one with a Griever. You still have time to save yourself!";
+	locArray.push(sector2);
+	
+	var sector3 = new locat(3);
+	sector3.description = "(Sector 3) You are moving quickly towards what appears to be a opening to a whole new sector which could lead to the exit point of the maze. There is a sudden force restraining you from moving any further, You realise you are stuck in quick sand and need to work something out fast before you are completely submerged. Luckily you grab hold of some vines and pull yourself to safety. Luck seems to be on your side.";
+	locArray.push(sector3);
+		
+	var sector4 = new locat(4);
+	sector4.description = "(Sector 4) Certain you had found a way out, you go down an unusual path till you meet a dead-end. I advice you hed back before something *evil* has you trapped in!";
+	locArray.push(sector4);
+	
+	var sector5 = new locat(5);
+	sector5.description = "(Sector 5) You make your your to a room within the walls of the maze. it just might seem you could escape. But guess what? You would never know until the next project! *Evil Laugh*";
+	locArray.push(sector5);
+	
+	var sector6 = new locat(6);
+	sector6.description = "(Sector 6) You seem to have found something; the base area for the grievers. The hopes of finding a way out are much brighter now.";
+	sector6.item = food;
+	locArray.push(sector6);
+	
+	var sector7 = new locat(7);
+	sector7.description = "(Sector 7) Desperate to get out of this maze of misery, you run deeper into the maze in search for an exit. May this have been a wrong call?";
+	sector7.item = spear;
+	locArray.push(sector7);
+	
+	var sector8 = new locat(8);
+	sector8.description = "(Sector 8) You encounter the body of a dead griever and have taken its transmission unit. This could be the key out.";
+	locArray.push(sector8);
+	
+	var sector9 = new locat(9);
+	sector9.description = "(Sector 9) I really don't think you're getting out of the this maze. The folks in the movie were way to lucky! *BOOM, in your face*";
+	sector9.item = greiverTransmitter;
+	locArray.push(sector9);
+	
+	displayMessage(locArray[0].description);
+	 
+	currLoc = locArray[0].id;
 }
 
 function search() { //Deals with checking if there is an item in the location.
-	displayMessage("Found: " + this.contents);
+	if (locArray[currLoc].item != undefined) {
+		displayMessage("Found: " + locArray[currLoc].item);
+	} else {
+		displayMessage("There is nothing in the room");		
+	}
 }
 
 var storage = ""; //Responsible for storing the items in different locations.
 
 function take() { 
-	if (this.contents != "There's nothing in the area.") { //If there is an item in the location, the item is stored and the player is notified.
-		storage = storage + "\n" + this.contents;
-		displayMessage("You have taken the " + this.contents + ".");
-	}
-		else {
+	if (locArray[currLoc].item != undefined) { //If there is an item in the location, the item is stored and the player is notified.
+		storage = storage + "\n" + locArray[currLoc].item.name;
+		displayMessage("You have taken the " + locArray[currLoc].item + ".");
+		delete locArray[currLoc].item;
+	} else {
 			displayMessage("There is nothing to take."); //If otherwise the player is notified there is no item.
 		}
-	return this.contents = "There's nothing in the area.";
 }
 
 function inventory() { //Looks in the storage, and if there is an item it is displayed in the textarea.
@@ -365,6 +224,8 @@ function inventory() { //Looks in the storage, and if there is an item it is dis
 			displayMessage("Inventory:" + storage);
 		}
 }
+
+
 
 
 //
